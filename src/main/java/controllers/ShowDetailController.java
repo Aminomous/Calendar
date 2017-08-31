@@ -44,7 +44,7 @@ public class ShowDetailController {
             stage.setTitle("Add Appointment");
             stage.showAndWait();
 
-            AddAppointmentController controller = loader.getController();
+            InputAppointmentController controller = loader.getController();
             String[] appointment = controller.getAppointment();
             if (!(appointment == null)) {
                 if (!(appointment[0].trim().equals("") && appointment[1].trim().equals("") && appointment[2].trim().equals(""))) {

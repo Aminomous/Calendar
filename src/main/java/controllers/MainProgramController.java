@@ -1,4 +1,5 @@
-package controllers; /**
+package controllers;
+/**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
@@ -74,18 +75,21 @@ public class MainProgramController {
             stage.setTitle("Add Appointment");
             stage.showAndWait();
 
-            AddAppointmentController controller = loader.getController();
+            InputAppointmentController controller = loader.getController();
             String[] appointment = controller.getAppointment();
-            if (!(appointment == null)) {
-                if (!(appointment[0].trim().equals("") && appointment[1].trim().equals("") && appointment[2].trim().equals(""))) {
-//                currentMonth.getDayByNumber(currentDay).addAppointment(appointment);
-                    this.days[currentDay - 1].addAppointment(appointment);
-                }
-            }
-
+            helperAddAppointment(appointment);
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    protected void helperAddAppointment(String[] appointment) {
+        if (!(appointment == null)) {
+            if (!(appointment[0].trim().equals("") && appointment[1].trim().equals("") && appointment[2].trim().equals(""))) {
+//                currentMonth.getDayByNumber(currentDay).addAppointment(appointment);
+                this.days[getCurrentDay() - 1].addAppointment(appointment);
+            }
         }
     }
 
@@ -104,7 +108,7 @@ public class MainProgramController {
             stage.setTitle("Appointment list");
 
             ShowDetailController controller = loader.getController();
-            controller.setCurrentDay(days[currentDay-1]);
+            controller.setCurrentDay(days[getCurrentDay() - 1]);
 
             stage.showAndWait();
 
@@ -208,15 +212,27 @@ public class MainProgramController {
                             menuButtonVisibilityUpdate();
                             String temp1 = event.getSource().toString();
                             String temp2 = temp1.substring(temp1.indexOf("'") + 1, temp1.length() - 1);
-                            currentDay = Integer.parseInt(temp2);
+                            setCurrentDay(Integer.parseInt(temp2));
                         }
                     });
-                    day.setPrefSize(100,100);
+                    day.setPrefSize(100, 100);
 
                     this.daysPanel.add(day, col, row);
                     counter++;
                 }
             }
         }
+    }
+
+    protected Day getcurrentDay(){
+        return days[getCurrentDay() -1];
+    }
+
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
+    public void setCurrentDay(int currentDay) {
+        this.currentDay = currentDay;
     }
 }
