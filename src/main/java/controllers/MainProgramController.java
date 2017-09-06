@@ -11,35 +11,31 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import models.Day;
-import models.Month;
-import models.Year;
+import models.Appointment;
+import models.AppointmentService;
+import sun.security.jca.ServiceId;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
 
 public class MainProgramController {
 
     @FXML
+    private Label dateSelectStatusLabel = new Label();
+
+    @FXML
     private Label monthLabel = new Label();
 
     @FXML
-    private Label yearLabel = new Label();
-
-    @FXML
-    private Button nextMonth = new Button();
-
-    @FXML
-    private Button prevMonth = new Button();
-
-    @FXML
-    private Button nextYear = new Button();
-
-    @FXML
-    private Button prevYear = new Button();
+    private Label yearLabel  = new Label();
 
     @FXML
     private Button addButton = new Button();
@@ -51,18 +47,45 @@ public class MainProgramController {
     private Button showDetailButton = new Button();
 
     @FXML
-    private GridPane menuPanel = new GridPane();
-
-    @FXML
     private GridPane daysPanel = new GridPane();
 
-    private Year currentYear;
-    private ArrayList<Year> years;
-    private int currentMonthNumber;
-    private Month currentMonth;
-    private Day[] days;
     private boolean isDaySelected = false;
-    private int currentDay;
+    private int currentDay, currentMonth, currentYear; //currentMonth is base 0
+    private AppointmentService service;
+    private ArrayList<Appointment> appointments;
+    private GregorianCalendar calendar;
+    private String selectedDate;
+
+
+    @FXML
+    protected void changeMonth(ActionEvent event) {
+        Button temp = (Button) event.getSource();
+        if (temp.getText().equals(">") && this.currentMonth != 11) {
+            setCurrentMonth(this.currentMonth + 1);
+            initDays();
+
+        } else if (this.currentMonth != 0) {
+            setCurrentMonth(this.currentMonth - 1);
+            initDays();
+        }
+
+        isDaySelected = false;
+        menuUpdate();
+    }
+
+    @FXML
+    protected void changeYear(ActionEvent event) {
+        Button temp = (Button) event.getSource();
+        if (temp.getText().equals(">")) {
+            setCurrentYear(this.currentYear + 1);
+        } else {
+            setCurrentYear(this.currentYear - 1);
+        }
+
+        setCurrentMonth(this.currentMonth);
+        isDaySelected = false;
+        menuUpdate();
+    }
 
     @FXML
     protected void addAppointment(ActionEvent event) {
@@ -70,31 +93,45 @@ public class MainProgramController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/addAppointmentPanel.fxml"));
 
         try {
+
             stage.initOwner(addButton.getScene().getWindow());
             stage.setScene(new Scene((Parent) loader.load()));
             stage.setTitle("Add Appointment");
-            stage.showAndWait();
 
             InputAppointmentController controller = loader.getController();
-            String[] appointment = controller.getAppointment();
-            helperAddAppointment(appointment);
+            if (isDaySelected) {
+                controller.setCurrentDate(selectedDate);
+            }else{
+                controller.setCurrentDate("EMPTY");
+            }
+            stage.showAndWait();
+
+            setAppointments(service.getAllAppointment());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    protected void helperAddAppointment(String[] appointment) {
-        if (!(appointment == null)) {
-            if (!(appointment[0].trim().equals("") && appointment[1].trim().equals("") && appointment[2].trim().equals(""))) {
-//                currentMonth.getDayByNumber(currentDay).addAppointment(appointment);
-                this.days[getCurrentDay() - 1].addAppointment(appointment);
-            }
-        }
-    }
-
     @FXML
     protected void removeAppointment(ActionEvent event) {
+        Stage stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/removePanel.fxml"));
+
+        try {
+
+            RemoveAppointmentController controller = loader.getController();
+
+            stage.initOwner(addButton.getScene().getWindow());
+            stage.setScene(new Scene((Parent) loader.load()));
+            stage.setTitle("Remove");
+
+            stage.showAndWait();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -103,12 +140,22 @@ public class MainProgramController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/detailPanel.fxml"));
 
         try {
+
             stage.initOwner(addButton.getScene().getWindow());
             stage.setScene(new Scene((Parent) loader.load()));
             stage.setTitle("Appointment list");
 
             ShowDetailController controller = loader.getController();
-            controller.setCurrentDay(days[getCurrentDay() - 1]);
+            if (!isDaySelected){
+                controller.setCurrentDate("EMPTY");
+                controller.setAppointments(appointments);
+
+            }else{
+                controller.setCurrentDate(selectedDate);
+                controller.setAppointments(filterAppointmentsByDate(selectedDate));
+            }
+
+            controller.showItems();
 
             stage.showAndWait();
 
@@ -118,121 +165,122 @@ public class MainProgramController {
         }
     }
 
-    @FXML
-    protected void changeMonthNext(ActionEvent event) {
-        if (this.currentMonth.getMonthNumber() != 12) {
-            setCurrentMonth(this.currentMonth.getMonthNumber() + 1);
-            setDays();
+    private ArrayList<Appointment> filterAppointmentsByDate(String filter){
+        ArrayList<Appointment> filtered = new ArrayList<Appointment>();
+
+        for (Appointment app:appointments){
+            if (app.getDate().equals(filter)){
+
+                filtered.add(app);
+            }
         }
-        isDaySelected = false;
-        menuButtonVisibilityUpdate();
+        return filtered;
     }
+    private void initDays() {
+        daysPanel.getChildren().clear();
+        int dayCounter = 1;
+        SimpleDateFormat sim = new SimpleDateFormat("u");
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        boolean firstWeek = true;
 
-    @FXML
-    protected void changeMonthPrev(ActionEvent event) {
-        if (this.currentMonth.getMonthNumber() != 1) {
-            setCurrentMonth(this.currentMonth.getMonthNumber() - 1);
-            setDays();
+        for (int row = 0; row < 6; row++) {
+            for (int col = firstWeek ? Integer.valueOf(sim.format(calendar.getTime())) % 7 : 0; col < 7; col++) {
+                if (dayCounter <= calendar.getActualMaximum(Calendar.DATE)) {
+                    Button day = new Button();
+                    day.setText(String.valueOf(dayCounter));
+                    day.setFont(Font.font(18));
+                    day.setPrefSize(80, 80);
+                    day.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
+                        public void handle(ActionEvent event) {
+                            isDaySelected = true;
+
+                            Button temp1 = (Button) event.getSource();
+                            String temp2 = temp1.getText();
+
+                            SimpleDateFormat spdf = new SimpleDateFormat("yyyy/MMMM/dd");
+                            calendar.set(Calendar.DATE, Integer.parseInt(temp2));
+                            setSelectedDate(spdf.format(calendar.getTime()));
+                            resetCalendarData();
+                            menuUpdate();
+                        }
+                    });
+
+                    daysPanel.add(day, col, row);
+                    dayCounter++;
+                }
+            }
+            firstWeek = false;
         }
-        isDaySelected = false;
-        menuButtonVisibilityUpdate();
+        resetCalendarData();
     }
 
-    @FXML
-    protected void changeYearNext(ActionEvent event) {
-        setCurrentYear(currentYear.getYearNumber() + 1);
-        isDaySelected = false;
-        menuButtonVisibilityUpdate();
-    }
+    private void menuUpdate() {
+//        addButton.setVisible(isDaySelected);
+//        addButton.setDisable(!isDaySelected);
+//        removeButton.setVisible(isDaySelected);
+//        removeButton.setDisable(!isDaySelected);
+//        showDetailButton.setVisible(isDaySelected);
+//        showDetailButton.setDisable(!isDaySelected);
 
-    @FXML
-    protected void changeYearPrev(ActionEvent event) {
-        setCurrentYear(currentYear.getYearNumber() - 1);
-        isDaySelected = false;
-        menuButtonVisibilityUpdate();
+        if(isDaySelected){
+            dateSelectStatusLabel.setText(selectedDate);
+            removeButton.setText("REMOVE");
+            showDetailButton.setText("SHOW");
+        }else{
+            dateSelectStatusLabel.setText("---");
+            removeButton.setText("REMOVE ALL");
+            showDetailButton.setText("SHOW ALL");
+
+            setSelectedDate("EMPTY");
+        }
     }
 
     @FXML
     public void initialize() {
+        appointments = new ArrayList<Appointment>();
+        service = new AppointmentService();
+        calendar = new GregorianCalendar();
+        setCurrentYear(calendar.get(Calendar.YEAR));
+        setCurrentMonth(calendar.get(Calendar.MONTH));
+        setCurrentDay(calendar.get(Calendar.DATE));
 
-        years = new ArrayList<Year>();
-        setCurrentYear(2017);
-        setCurrentMonth(1);
-        setDays();
-        menuButtonVisibilityUpdate();
+        initDays();
+        menuUpdate();
+        setAppointments(service.getAllAppointment());
+
+        daysPanel.setStyle("-fx-background-color:black;");
+    }
+
+    private void setCurrentYear(int year) {
+        currentYear = year;
+        calendar.set(Calendar.YEAR, year);
+        yearLabel.setText("" + currentYear);
 
     }
 
-    private void menuButtonVisibilityUpdate() {
-        this.addButton.setVisible(isDaySelected);
-        this.addButton.setDisable(!isDaySelected);
-        this.removeButton.setVisible(isDaySelected);
-        this.removeButton.setDisable(!isDaySelected);
-        this.showDetailButton.setVisible(isDaySelected);
-        this.showDetailButton.setDisable(!isDaySelected);
-    }
-
-    private void setCurrentYear(int number) {
-        boolean isThereAYear = false;
-        for (Year year : years) {
-            if (year.getYearNumber() == number) {
-                isThereAYear = true;
-                currentYear = year;
-                break;
-            }
-        }
-
-        if (!isThereAYear) {
-            Year year = new Year(number);
-            currentYear = year;
-            years.add(year);
-        }
-        this.yearLabel.setText(String.valueOf(currentYear.getYearNumber()));
-    }
-
-    private void setCurrentMonth(int monthNumber) {
-        this.currentMonth = this.currentYear.getMonthByNumber(monthNumber);
-        this.currentMonthNumber = monthNumber;
-        this.monthLabel.setText(currentMonth.getName());
+    private void setCurrentMonth(int month) {
+        currentMonth = month;
+        calendar.set(Calendar.MONTH, month);
+        monthLabel.setText(calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US));
 
     }
 
-    private void setDays() {
-
-        this.days = this.currentMonth.getDays();
-        daysPanel.getChildren().clear();
-        int counter = 0;
-        for (int row = 0; row < 5; row++) {
-            for (int col = 0; col < 7; col++) {
-                if (counter < days.length) {
-                    Button day = new Button(String.valueOf(days[counter].getDayNumber()));
-                    day.addEventHandler(ActionEvent.ACTION, new EventHandler<ActionEvent>() {
-                        public void handle(ActionEvent event) {
-                            isDaySelected = true;
-                            menuButtonVisibilityUpdate();
-                            String temp1 = event.getSource().toString();
-                            String temp2 = temp1.substring(temp1.indexOf("'") + 1, temp1.length() - 1);
-                            setCurrentDay(Integer.parseInt(temp2));
-                        }
-                    });
-                    day.setPrefSize(100, 100);
-
-                    this.daysPanel.add(day, col, row);
-                    counter++;
-                }
-            }
-        }
+    private void setCurrentDay(int day) {
+        currentDay = day;
     }
 
-    protected Day getcurrentDay(){
-        return days[getCurrentDay() -1];
+    private void setSelectedDate(String date){ selectedDate = date;}
+
+    private void setAppointments(ArrayList<Appointment> app){
+        appointments = app;
     }
 
-    public int getCurrentDay() {
-        return currentDay;
+    private void resetCalendarData() {
+        calendar.set(currentYear, currentMonth, currentDay);
     }
 
-    public void setCurrentDay(int currentDay) {
-        this.currentDay = currentDay;
+    public String getSelectedDate() {
+        return selectedDate;
     }
+
 }

@@ -1,4 +1,5 @@
-package controllers; /**
+package controllers;
+/**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
@@ -11,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import models.Appointment;
-import models.Day;
+import models.AppointmentService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ShowDetailController {
     private Button addButton = new Button();
 
     @FXML
-    private Button removeButton = new Button();
+    private Button editButton = new Button();
 
     @FXML
     private Button backButton = new Button();
@@ -30,7 +31,9 @@ public class ShowDetailController {
     @FXML
     private TextArea showArea = new TextArea();
 
-    private Day currentDay;
+    private String currentdate;
+    private AppointmentService service;
+    private ArrayList<Appointment> appointments;
 
 
     @FXML
@@ -42,16 +45,11 @@ public class ShowDetailController {
             stage.initOwner(addButton.getScene().getWindow());
             stage.setScene(new Scene((Parent) loader.load()));
             stage.setTitle("Add Appointment");
-            stage.showAndWait();
 
             InputAppointmentController controller = loader.getController();
-            String[] appointment = controller.getAppointment();
-            if (!(appointment == null)) {
-                if (!(appointment[0].trim().equals("") && appointment[1].trim().equals("") && appointment[2].trim().equals(""))) {
-//                currentMonth.getDayByNumber(currentDay).addAppointment(appointment);
-                    this.currentDay.addAppointment(appointment);
-                }
-            }
+            controller.setCurrentDate(currentdate);
+
+            stage.showAndWait();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +57,7 @@ public class ShowDetailController {
     }
 
     @FXML
-    protected void removeItem() {
+    protected void editItem() {
     }
 
     @FXML
@@ -68,22 +66,26 @@ public class ShowDetailController {
     }
     
     protected void showItems(){
-        ArrayList<Appointment> appointments = currentDay.getAppointments();
+
         String list = String.format("%0$-15s %0$-50s %s", "Time", "Title", "Description\n");
-        for (Appointment app : appointments){
-            list += app.toString()+"\n";
+
+        for (Appointment record:appointments){
+            list += String.format(record.toString()+"\n");
         }
         this.showArea.setText(list);
     }
     @FXML
     protected void initialize(){
         this.showArea.setScrollLeft(2.0);
+        this.showArea.setScrollTop(2.0);
         this.showArea.setEditable(false);
+//        showItems();
     }
 
-    protected void setCurrentDay(Day currentDay) {
-
-        this.currentDay = currentDay;
-        showItems();
+    public void setCurrentDate(String currentdate) {
+        this.currentdate = currentdate;
+    }
+    public void setAppointments(ArrayList<Appointment> app){
+        appointments = app;
     }
 }
