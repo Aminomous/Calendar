@@ -102,6 +102,7 @@ public class MainProgramController {
             }else{
                 controller.setCurrentDate("EMPTY");
             }
+            controller.setTitleName("Add Appointment");
             stage.showAndWait();
 
             setAppointments(service.getAllAppointment());

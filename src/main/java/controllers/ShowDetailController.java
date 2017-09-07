@@ -49,7 +49,7 @@ public class ShowDetailController {
 
         try {
             stage.initOwner(addButton.getScene().getWindow());
-            stage.setScene(new Scene((Parent) loader.load()));
+            stage.setScene(new Scene( loader.load()));
             stage.setTitle("Add Appointment");
 
             InputAppointmentController controller = loader.getController();
@@ -76,7 +76,7 @@ public class ShowDetailController {
 
         try {
             stage.initOwner(addButton.getScene().getWindow());
-            stage.setScene(new Scene((Parent) loader.load()));
+            stage.setScene(new Scene( loader.load()));
             stage.setTitle("Edit Appointment");
 
             InputAppointmentController controller = loader.getController();
@@ -85,12 +85,15 @@ public class ShowDetailController {
 
             stage.showAndWait();
 
-            appointments.remove(appointments.get(choiceNumber.getValue()-1));
-            appointments.add(controller.getAppointment());
+            if (controller.getAppointment() != null){
+                appointments.remove(appointments.get(choiceNumber.getValue()-1));
+                appointments.add(controller.getAppointment());
+            }
 
             showItems();
 
         } catch (NullPointerException e) {
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Fail to proceed.");
             alert.setContentText("Please select some appointment.");
