@@ -10,20 +10,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import models.Appointment;
 import models.AppointmentService;
-import sun.security.jca.ServiceId;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.util.*;
 
 
 public class MainProgramController {
@@ -115,23 +113,28 @@ public class MainProgramController {
 
     @FXML
     protected void removeAppointment(ActionEvent event) {
-        Stage stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/removePanel.fxml"));
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-        try {
+        if (isDaySelected){
+            alert.setHeaderText("Remove all appointments in " + selectedDate);
+            alert.setContentText("Are you sure?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                service.removeAppointmentByDate(selectedDate);
+            }
 
-            RemoveAppointmentController controller = loader.getController();
+        }else{
+            alert.setHeaderText("Remove all appointment in this program");
+            alert.setContentText("Are you sure?");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                service.removeAllAppointment();
+            }
 
-            stage.initOwner(addButton.getScene().getWindow());
-            stage.setScene(new Scene((Parent) loader.load()));
-            stage.setTitle("Remove");
-
-            stage.showAndWait();
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        appointments = service.getAllAppointment();
+
+
     }
 
     @FXML
@@ -158,6 +161,8 @@ public class MainProgramController {
             controller.showItems();
 
             stage.showAndWait();
+
+            appointments = service.getAllAppointment();
 
 
         } catch (IOException e) {

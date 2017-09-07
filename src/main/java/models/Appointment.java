@@ -6,12 +6,14 @@ package models;
 
 public class Appointment {
 
+	private int id;
 	private String date;
 	private String time;
 	private String title;
 	private String desciption;
 
-	public Appointment(String... str) {
+	public Appointment(int id, String... str) {
+		this.id = id;
 		this.setDate(str[0]);
 		this.setTime(str[1]);
 		this.setTitle(str[2]);
@@ -54,5 +56,9 @@ public class Appointment {
 
 	public void setDesciption(String desciption) {
 		this.desciption = desciption;
+	}
+
+	public int getId() {
+		return id;
 	}
 }

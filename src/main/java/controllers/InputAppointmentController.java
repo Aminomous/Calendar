@@ -14,7 +14,6 @@ import models.AppointmentService;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class InputAppointmentController {
@@ -44,13 +43,14 @@ public class InputAppointmentController {
     private String currentDate;
     private ArrayList<Appointment> appointments;
     private AppointmentService service;
+    private String titleName;
 
 
     @FXML
     protected void initialize() {
         this.descriptionInput.setScrollLeft(2);
         this.descriptionInput.setScrollTop(2);
-
+        service = new AppointmentService();
 
     }
 
@@ -58,15 +58,19 @@ public class InputAppointmentController {
     protected void createAppointment() {
 
         appointment = new Appointment(
-                datePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy/MMMM/dd")),
+                service.getLatestId(),
+                getDatePicker().getValue().format(DateTimeFormatter.ofPattern("yyyy/MMMM/dd")),
                 timeInput.getText(),
                 titleInput.getText(),
                 descriptionInput.getText()
         );
 
-        service = new AppointmentService();
-        service.addAppointment(appointment);
+        if (titleName == "Add Appointment") {
+            service.addAppointment(appointment);
 
+        }else{
+            service.updateAppointment(appointment);
+        }
         redirectPanel();
 
     }
@@ -74,14 +78,13 @@ public class InputAppointmentController {
     @FXML
     private void redirectPanel() {
         okButton.getScene().getWindow().hide();
-
     }
 
     public void setCurrentDate(String date) {
         if (!date.equals("EMPTY")) {
             currentDate = date;
 
-            datePicker.setValue(
+            getDatePicker().setValue(
                     LocalDate.of(
                             Integer.parseInt(currentDate.substring(0, 4)),
                             monthStrToInt(currentDate.substring(5, currentDate.length() - 3)),
@@ -109,8 +112,12 @@ public class InputAppointmentController {
         return monthFormatChanger.get(month);
     }
 
-    public void setAppointments(ArrayList<Appointment> app) {
-        this.appointments = app;
+    public void setAppointment(Appointment app) {
+        this.appointment = app;
+    }
+
+    public Appointment getAppointment(){
+        return appointment;
     }
 
     public TextField getTimeInput() {
@@ -135,5 +142,21 @@ public class InputAppointmentController {
 
     public void setDescriptionInput(String descriptionInput) {
         this.descriptionInput.setText(descriptionInput);
+    }
+
+    public DatePicker getDatePicker() {
+        return datePicker;
+    }
+
+    public void setDatePicker(DatePicker datePicker) {
+        this.datePicker = datePicker;
+    }
+
+    public void setDatePickerDisable(){
+        datePicker.setDisable(true);
+    }
+
+    public void setTitleName(String name){
+        titleName = name;
     }
 }
