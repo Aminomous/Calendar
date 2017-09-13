@@ -4,12 +4,10 @@ package controllers;
  */
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import models.Appointment;
 import models.AppointmentService;
+import models.Months;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -19,25 +17,28 @@ import java.util.HashMap;
 public class InputAppointmentController {
 
     @FXML
-    private TextField dateInput = new TextField();
+    private TextField dateInput;
 
     @FXML
-    private TextField timeInput = new TextField();
+    private TextField timeInput;
 
     @FXML
-    private TextField titleInput = new TextField();
+    private TextField titleInput;
 
     @FXML
-    private TextArea descriptionInput = new TextArea();
+    private TextArea descriptionInput;
 
     @FXML
-    private Button okButton = new Button();
+    private Button okButton;
 
     @FXML
-    private Button cancelButton = new Button();
+    private Button cancelButton;
 
     @FXML
-    private DatePicker datePicker = new DatePicker();
+    private DatePicker datePicker;
+
+    @FXML
+    private ChoiceBox<String> repeatOption;
 
     private Appointment appointment;
     private String currentDate;
@@ -51,6 +52,7 @@ public class InputAppointmentController {
         this.descriptionInput.setScrollLeft(2);
         this.descriptionInput.setScrollTop(2);
         service = new AppointmentService();
+        initRepeatOption();
 
     }
 
@@ -62,13 +64,15 @@ public class InputAppointmentController {
                 getDatePicker().getValue().format(DateTimeFormatter.ofPattern("yyyy/MMMM/dd")),
                 timeInput.getText(),
                 titleInput.getText(),
-                descriptionInput.getText()
+                descriptionInput.getText(),
+                repeatOption.getValue(),
+                repeatOption.getValue().equals("None")?0+"":String.valueOf(service.getLatestId()+1)
         );
 
         if (titleName == "Add Appointment") {
             service.addAppointment(appointment);
 
-        }else{
+        } else {
             service.updateAppointment(appointment);
         }
         redirectPanel();
@@ -96,27 +100,38 @@ public class InputAppointmentController {
     }
 
     private int monthStrToInt(String month) {
-        HashMap<String, Integer> monthFormatChanger = new HashMap<String, Integer>();
-        monthFormatChanger.put("January", 1);
-        monthFormatChanger.put("February", 2);
-        monthFormatChanger.put("March", 3);
-        monthFormatChanger.put("April", 4);
-        monthFormatChanger.put("May", 5);
-        monthFormatChanger.put("June", 6);
-        monthFormatChanger.put("July", 7);
-        monthFormatChanger.put("August", 8);
-        monthFormatChanger.put("September", 9);
-        monthFormatChanger.put("October", 10);
-        monthFormatChanger.put("November", 11);
-        monthFormatChanger.put("December", 12);
-        return monthFormatChanger.get(month);
+//        HashMap<String, Integer> monthFormatChanger = new HashMap<String, Integer>();
+//        monthFormatChanger.put("January", 1);
+//        monthFormatChanger.put("February", 2);
+//        monthFormatChanger.put("March", 3);
+//        monthFormatChanger.put("April", 4);
+//        monthFormatChanger.put("May", 5);
+//        monthFormatChanger.put("June", 6);
+//        monthFormatChanger.put("July", 7);
+//        monthFormatChanger.put("August", 8);
+//        monthFormatChanger.put("September", 9);
+//        monthFormatChanger.put("October", 10);
+//        monthFormatChanger.put("November", 11);
+//        monthFormatChanger.put("December", 12);
+//        return monthFormatChanger.get(month);
+        return Months.months.indexOf(month)+1;
+    }
+
+    private void initRepeatOption() {
+        repeatOption.getItems().clear();
+        repeatOption.getItems().add("None");
+        repeatOption.getItems().add("Every day");
+        repeatOption.getItems().add("Every week");
+        repeatOption.getItems().add("Every month");
+        repeatOption.getItems().add("Every year");
+        repeatOption.getSelectionModel().selectFirst();
     }
 
     public void setAppointment(Appointment app) {
         this.appointment = app;
     }
 
-    public Appointment getAppointment(){
+    public Appointment getAppointment() {
         return appointment;
     }
 
@@ -152,11 +167,15 @@ public class InputAppointmentController {
         this.datePicker = datePicker;
     }
 
-    public void setDatePickerDisable(){
+    public void setDatePickerDisable() {
         datePicker.setDisable(true);
     }
 
-    public void setTitleName(String name){
+    public void setChoiceBoxDisable() {
+        repeatOption.setDisable(true);
+    }
+
+    public void setTitleName(String name) {
         titleName = name;
     }
 }

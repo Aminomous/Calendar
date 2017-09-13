@@ -27,25 +27,25 @@ import java.util.*;
 public class MainProgramController {
 
     @FXML
-    private Label dateSelectStatusLabel = new Label();
+    private Label dateSelectStatusLabel;
 
     @FXML
-    private Label monthLabel = new Label();
+    private Label monthLabel;
 
     @FXML
-    private Label yearLabel  = new Label();
+    private Label yearLabel;
 
     @FXML
-    private Button addButton = new Button();
+    private Button addButton;
 
     @FXML
-    private Button removeButton = new Button();
+    private Button removeButton;
 
     @FXML
-    private Button showDetailButton = new Button();
+    private Button showDetailButton;
 
     @FXML
-    private GridPane daysPanel = new GridPane();
+    private GridPane daysPanel;
 
     private boolean isDaySelected = false;
     private int currentDay, currentMonth, currentYear; //currentMonth is base 0
@@ -62,7 +62,7 @@ public class MainProgramController {
             setCurrentMonth(this.currentMonth + 1);
             initDays();
 
-        } else if (this.currentMonth != 0) {
+        } else if (temp.getText().equals("<") && this.currentMonth != 0) {
             setCurrentMonth(this.currentMonth - 1);
             initDays();
         }
@@ -99,7 +99,7 @@ public class MainProgramController {
             InputAppointmentController controller = loader.getController();
             if (isDaySelected) {
                 controller.setCurrentDate(selectedDate);
-            }else{
+            } else {
                 controller.setCurrentDate("EMPTY");
             }
             controller.setTitleName("Add Appointment");
@@ -116,7 +116,7 @@ public class MainProgramController {
     protected void removeAppointment(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 
-        if (isDaySelected){
+        if (isDaySelected) {
             alert.setHeaderText("Remove all appointments in " + selectedDate);
             alert.setContentText("Are you sure?");
             Optional<ButtonType> result = alert.showAndWait();
@@ -124,7 +124,7 @@ public class MainProgramController {
                 service.removeAppointmentByDate(selectedDate);
             }
 
-        }else{
+        } else {
             alert.setHeaderText("Remove all appointment in this program");
             alert.setContentText("Are you sure?");
             Optional<ButtonType> result = alert.showAndWait();
@@ -149,17 +149,17 @@ public class MainProgramController {
             stage.setScene(new Scene((Parent) loader.load()));
             stage.setTitle("Appointment list");
 
-            ShowDetailController controller = loader.getController();
-            if (!isDaySelected){
+            ShowAppointmentController controller = loader.getController();
+            if (!isDaySelected) {
                 controller.setCurrentDate("EMPTY");
                 controller.setAppointments(appointments);
 
-            }else{
+            } else {
                 controller.setCurrentDate(selectedDate);
                 controller.setAppointments(filterAppointmentsByDate(selectedDate));
             }
 
-            controller.showItems();
+            controller.showItems(isDaySelected?"NOTSHOWDATE":"SHOWDATE");
 
             stage.showAndWait();
 
@@ -169,19 +169,21 @@ public class MainProgramController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    private ArrayList<Appointment> filterAppointmentsByDate(String filter){
+    private ArrayList<Appointment> filterAppointmentsByDate(String filter) {
         ArrayList<Appointment> filtered = new ArrayList<Appointment>();
 
-        for (Appointment app:appointments){
-            if (app.getDate().equals(filter)){
+        for (Appointment app : appointments) {
+            if (app.getDate().equals(filter)) {
 
                 filtered.add(app);
             }
         }
         return filtered;
     }
+
     private void initDays() {
         daysPanel.getChildren().clear();
         int dayCounter = 1;
@@ -221,18 +223,12 @@ public class MainProgramController {
     }
 
     private void menuUpdate() {
-//        addButton.setVisible(isDaySelected);
-//        addButton.setDisable(!isDaySelected);
-//        removeButton.setVisible(isDaySelected);
-//        removeButton.setDisable(!isDaySelected);
-//        showDetailButton.setVisible(isDaySelected);
-//        showDetailButton.setDisable(!isDaySelected);
 
-        if(isDaySelected){
+        if (isDaySelected) {
             dateSelectStatusLabel.setText(selectedDate);
             removeButton.setText("REMOVE");
             showDetailButton.setText("SHOW");
-        }else{
+        } else {
             dateSelectStatusLabel.setText("---");
             removeButton.setText("REMOVE ALL");
             showDetailButton.setText("SHOW ALL");
@@ -275,9 +271,11 @@ public class MainProgramController {
         currentDay = day;
     }
 
-    private void setSelectedDate(String date){ selectedDate = date;}
+    private void setSelectedDate(String date) {
+        selectedDate = date;
+    }
 
-    private void setAppointments(ArrayList<Appointment> app){
+    private void setAppointments(ArrayList<Appointment> app) {
         appointments = app;
     }
 

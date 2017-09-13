@@ -11,19 +11,25 @@ public class Appointment {
 	private String time;
 	private String title;
 	private String desciption;
+	private String repeatOption;
+	private int repeatId;
 
 	public Appointment(int id, String... str) {
 		this.id = id;
-		this.setDate(str[0]);
-		this.setTime(str[1]);
-		this.setTitle(str[2]);
-		this.setDesciption(str[3]);
-
+		this.date = str[0];
+		this.time = str[1];
+		this.title = str[2];
+		this.desciption = str[3];
+		this.repeatOption = str[4];
+		this.repeatId = Integer.parseInt(str[5]);
 	}
 
-	@Override
-	public String toString(){
+	public String getDetailWithoutDate(){
 		return String.format("%0$-15s %0$-50s %s", getTime(), getTitle(), getDesciption());
+	}
+
+	public String getDetailWithDate(){
+		return String.format("%-20s %0$-15s %0$-50s %s", getDate(), getTime(), getTitle(), getDesciption());
 	}
 
 	public String getDate() {
@@ -61,4 +67,16 @@ public class Appointment {
 	public int getId() {
 		return id;
 	}
+
+	public String getRepeatOption() {
+		return repeatOption;
+	}
+
+	public void setRepeatOption(String repeatOption) {
+		this.repeatOption = repeatOption;
+	}
+
+	public int getRepeatId(){
+	    return repeatId;
+    }
 }
