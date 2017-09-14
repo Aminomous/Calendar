@@ -6,13 +6,12 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import models.Appointment;
-import models.AppointmentService;
+import databaseConnector.AppointmentService;
 import models.Months;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class InputAppointmentController {
 
@@ -100,20 +99,6 @@ public class InputAppointmentController {
     }
 
     private int monthStrToInt(String month) {
-//        HashMap<String, Integer> monthFormatChanger = new HashMap<String, Integer>();
-//        monthFormatChanger.put("January", 1);
-//        monthFormatChanger.put("February", 2);
-//        monthFormatChanger.put("March", 3);
-//        monthFormatChanger.put("April", 4);
-//        monthFormatChanger.put("May", 5);
-//        monthFormatChanger.put("June", 6);
-//        monthFormatChanger.put("July", 7);
-//        monthFormatChanger.put("August", 8);
-//        monthFormatChanger.put("September", 9);
-//        monthFormatChanger.put("October", 10);
-//        monthFormatChanger.put("November", 11);
-//        monthFormatChanger.put("December", 12);
-//        return monthFormatChanger.get(month);
         return Months.months.indexOf(month)+1;
     }
 

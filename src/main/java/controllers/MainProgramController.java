@@ -16,7 +16,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import models.Appointment;
-import models.AppointmentService;
+import databaseConnector.AppointmentService;
 import javafx.scene.control.Alert;
 
 import java.io.IOException;

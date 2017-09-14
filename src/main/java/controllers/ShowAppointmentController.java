@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import models.Appointment;
-import models.AppointmentService;
+import databaseConnector.AppointmentService;
 
 import java.io.IOException;
 import java.util.ArrayList;
