@@ -1,7 +1,28 @@
-Button{
+.toggle-button{
     -fx-background-color:white;
 }
-Button:hover{
+.toggle-button:hover{
     -fx-background-color:black;
     -fx-text-fill:white;
+}
+.toggle-button:selected  {
+    -fx-background-color:green;
+    -fx-text-fill:white;
+}
+#app {
+    -fx-background-color:red;
+    -fx-text-fill:white;
+}
+.button{
+    -fx-background-color:white;
+}
+.button:hover{
+    -fx-background-color:black;
+    -fx-text-fill:white;
+}
+
+GridPane{
+    -fx-background-color:rgba(255, 255, 255,0.5);
+    -fx-background-color:transparent;
+    -fx-background-radius:10;
 }

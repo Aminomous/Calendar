@@ -3,11 +3,13 @@ package controllers;
  * Thanadon Pakawatthippoyom 5810405037
  */
 
+import databaseConnector.DataSource;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Appointment;
 import databaseConnector.AppointmentService;
@@ -28,7 +30,7 @@ public class ShowAppointmentController {
     private ChoiceBox<Integer> choiceNumber;
 
     private String currentdate;
-    private AppointmentService service;
+    private DataSource service;
     private ArrayList<Appointment> appointments;
     private String showingType;
 
@@ -48,9 +50,10 @@ public class ShowAppointmentController {
             if (!currentdate.equals("EMPTY")) {
                 controller.setDatePickerDisable();
             }
+
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             appointments.add(controller.getAppointment());
-
             showItems("NOTSHOWDATE");
 
         } catch (NullPointerException e) {
@@ -76,6 +79,7 @@ public class ShowAppointmentController {
             controller.setDatePickerDisable();
             controller.setChoiceBoxDisable();
 
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
 
             if (controller.getAppointment() != null) {
@@ -106,7 +110,7 @@ public class ShowAppointmentController {
             alert.setContentText("Are you sure?");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                service.removeAppointmentByDate(app.getDate());
+                service.removeAppointment(2, app.getDate());
                 appointments.remove(choiceNumber.getValue() - 1);
             }
         } else {
@@ -114,7 +118,7 @@ public class ShowAppointmentController {
             alert.setContentText("Are you sure?");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
-                service.removeAppointmentByRepeatID(app.getRepeatId());
+                service.removeAppointment(1, app.getRepeatId());
                 for (int i = appointments.size()-1 ; i >=0  ; i--){
                     if (appointments.get(i).getRepeatId() == app.getRepeatId()){
                         appointments.remove(i);

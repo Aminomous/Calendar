@@ -3,6 +3,7 @@ package controllers;
  * Thanadon Pakawatthippoyom 5810405037
  */
 
+import databaseConnector.DataSource;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import models.Appointment;
@@ -16,22 +17,13 @@ import java.util.ArrayList;
 public class InputAppointmentController {
 
     @FXML
-    private TextField dateInput;
-
-    @FXML
-    private TextField timeInput;
-
-    @FXML
-    private TextField titleInput;
+    private TextField dateInput, timeInput, titleInput;
 
     @FXML
     private TextArea descriptionInput;
 
     @FXML
-    private Button okButton;
-
-    @FXML
-    private Button cancelButton;
+    private Button okButton, cancelButton;
 
     @FXML
     private DatePicker datePicker;
@@ -42,7 +34,7 @@ public class InputAppointmentController {
     private Appointment appointment;
     private String currentDate;
     private ArrayList<Appointment> appointments;
-    private AppointmentService service;
+    private DataSource service;
     private String titleName;
 
 
@@ -99,7 +91,7 @@ public class InputAppointmentController {
     }
 
     private int monthStrToInt(String month) {
-        return Months.months.indexOf(month)+1;
+        return Months.monthsKeyString.get(month);
     }
 
     private void initRepeatOption() {

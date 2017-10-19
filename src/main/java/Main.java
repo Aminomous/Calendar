@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -14,8 +15,10 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("mainProgram.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
+//        primaryStage.setOpacity(0.8);
         primaryStage.show();
         primaryStage.setResizable(false);
+
 
     }
 

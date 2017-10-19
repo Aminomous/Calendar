@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class AppointmentService {
+public class AppointmentService implements DataSource{
     private String dbUrl = "jdbc:sqlite:AppointmentDatabase.db";
     private int latestId;
 
@@ -50,7 +50,8 @@ public class AppointmentService {
         return null;
     }
 
-    public void addAppointment(Appointment arg) {
+    @Override
+    public void addAppointment(Appointment app) {
 
         String query = "insert into Appointment(date, time, title, description, option, repeatId) values(?, ?, ?, ?, ?, ?)";
         try {
@@ -58,15 +59,15 @@ public class AppointmentService {
             Connection conn = DriverManager.getConnection(this.dbUrl);
             PreparedStatement p = conn.prepareStatement(query);
 
-            p.setString(1, arg.getDate());
-            p.setString(2, arg.getTime());
-            p.setString(3, arg.getTitle());
-            p.setString(4, arg.getDesciption());
-            p.setString(5, arg.getRepeatOption());
-            p.setInt(6, arg.getRepeatOption().equals("None")?0:getLatestId()+1);
+            p.setString(1, app.getDate());
+            p.setString(2, app.getTime());
+            p.setString(3, app.getTitle());
+            p.setString(4, app.getDesciption());
+            p.setString(5, app.getRepeatOption());
+            p.setInt(6, app.getRepeatOption().equals("None")?0:getLatestId()+1);
             p.executeUpdate();
 
-            String option = arg.getRepeatOption();
+            String option = app.getRepeatOption();
 
             if (option.equals("None")) {
                 conn.close();
@@ -74,8 +75,8 @@ public class AppointmentService {
                 int repeatId = getLatestId();
                 GregorianCalendar calendar = new GregorianCalendar();
                 Date startDate = calendar.getTime();
-                String[] date = arg.getDate().split("/");
-                calendar.set(Integer.parseInt(date[0]), Months.months.indexOf(date[1]), Integer.parseInt(date[2]));
+                String[] date = app.getDate().split("/");
+                calendar.set(Integer.parseInt(date[0]), Months.monthsKeyString.get(date[1]), Integer.parseInt(date[2]));
 
 //                int number = option.equals("Every day") ? 13 : option.equals("Every week") ? 13 : option.equals("Every month") ? 1 : option.equals("Every year") ? 12 : 0;
                 int number = 13;
@@ -88,10 +89,10 @@ public class AppointmentService {
                         for (int day = calendar.get(Calendar.DAY_OF_MONTH); day <= calendar.getActualMaximum(Calendar.DAY_OF_MONTH); day += increment) {
                             calendar.set(Calendar.DAY_OF_MONTH, day);
                             p.setString(1, new SimpleDateFormat("yyyy/MMMM/dd").format(calendar.getTime()));
-                            p.setString(2, arg.getTime());
-                            p.setString(3, arg.getTitle());
-                            p.setString(4, arg.getDesciption());
-                            p.setString(5, arg.getRepeatOption());
+                            p.setString(2, app.getTime());
+                            p.setString(3, app.getTitle());
+                            p.setString(4, app.getDesciption());
+                            p.setString(5, app.getRepeatOption());
                             p.setInt(6, repeatId);
                             p.executeUpdate();
 
@@ -99,17 +100,17 @@ public class AppointmentService {
 
                     }
                     else if (option.equals("Every month")) {
-                        calendar.set(Integer.parseInt(date[0]), Months.months.indexOf(date[1]), Integer.parseInt(date[2]));
+                        calendar.set(Integer.parseInt(date[0]), Months.monthsKeyString.get(date[1]), Integer.parseInt(date[2]));
                         int dayTemp = Integer.parseInt(date[2]);
                         calendar.set(Calendar.MONTH, calendar.get(Calendar.MONTH) + loop);
                         if (calendar.get(Calendar.DAY_OF_MONTH) < dayTemp) {
                             continue;
                         }
                         p.setString(1, new SimpleDateFormat("yyyy/MMMM/dd").format(calendar.getTime()));
-                        p.setString(2, arg.getTime());
-                        p.setString(3, arg.getTitle());
-                        p.setString(4, arg.getDesciption());
-                        p.setString(5, arg.getRepeatOption());
+                        p.setString(2, app.getTime());
+                        p.setString(3, app.getTitle());
+                        p.setString(4, app.getDesciption());
+                        p.setString(5, app.getRepeatOption());
                         p.setInt(6, repeatId);
                         p.executeUpdate();
                     }
@@ -117,10 +118,10 @@ public class AppointmentService {
                     else if (option.equals("Every year")) {
                         calendar.set(Calendar.YEAR, calendar.get(Calendar.YEAR) + 1);
                         p.setString(1, new SimpleDateFormat("yyyy/MMMM/dd").format(calendar.getTime()));
-                        p.setString(2, arg.getTime());
-                        p.setString(3, arg.getTitle());
-                        p.setString(4, arg.getDesciption());
-                        p.setString(5, arg.getRepeatOption());
+                        p.setString(2, app.getTime());
+                        p.setString(3, app.getTitle());
+                        p.setString(4, app.getDesciption());
+                        p.setString(5, app.getRepeatOption());
                         p.setInt(6, repeatId);
                         p.executeUpdate();
 
@@ -215,6 +216,21 @@ public class AppointmentService {
         }
     }
 
+    @Override
+    public void removeAppointment(int removeType, Object app) {
+        switch (removeType) {
+            case 0:
+                removeAllAppointment();
+                break;
+            case 1:
+                removeAppointmentByRepeatID((int) app);
+                break;
+            case 2:
+                removeAppointmentByDate((String) app);
+        }
+
+    }
+
     public int getLatestId() {
 
         String query = "select * from sqlite_sequence";
@@ -237,4 +253,5 @@ public class AppointmentService {
 
         return 0;
     }
+
 }
