@@ -21,6 +21,9 @@ import models.Appointment;
 import databaseConnector.AppointmentService;
 import models.Months;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -237,8 +240,11 @@ public class MainProgramController {
 
     @FXML
     public void initialize() {
+        ApplicationContext bf = new ClassPathXmlApplicationContext("config.xml");
+
         appointments = new ArrayList<>();
-        service = new AppointmentService();
+//        service = new AppointmentService();
+        service = (AppointmentService) bf.getBean("service");
         calendar = new GregorianCalendar();
         setCurrentYear(calendar.get(Calendar.YEAR));
         setCurrentMonth(calendar.get(Calendar.MONTH));
@@ -247,7 +253,6 @@ public class MainProgramController {
         setAppointments(service.getAllAppointment());
         initDays();
         menuUpdate();
-
 
 //        daysPanel.setStyle("-fx-background-color:black;");
     }

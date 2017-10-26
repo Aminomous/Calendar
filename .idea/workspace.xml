@@ -6,26 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cd4d389-b73d-4ae6-823a-0b8450fe4fdb" name="Default" comment="added create and remove appointment option(every day, ...)&#10;&#10;added remove an appointment in each day function.&#10;&#10;waiting junit">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/databaseConnector/DataSource.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/models/AppointmentService.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppointmentDatabase.db" afterPath="$PROJECT_DIR$/AppointmentDatabase.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Main.class" afterPath="$PROJECT_DIR$/target/classes/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controllers/InputAppointmentController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/InputAppointmentController.class" />
+    <list default="true" id="5cd4d389-b73d-4ae6-823a-0b8450fe4fdb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_1_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controllers/MainProgramController$1.class" afterPath="$PROJECT_DIR$/target/classes/controllers/MainProgramController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controllers/MainProgramController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/MainProgramController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/controllers/ShowAppointmentController.class" afterPath="$PROJECT_DIR$/target/classes/controllers/ShowAppointmentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/models/Months.class" afterPath="$PROJECT_DIR$/target/classes/models/Months.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CalendarMaven2.iml" afterPath="$PROJECT_DIR$/CalendarMaven2.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controllers/ShowAppointmentController.java" afterPath="$PROJECT_DIR$/src/main/java/controllers/ShowAppointmentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/databaseConnector/AppointmentService.java" afterPath="$PROJECT_DIR$/src/main/java/databaseConnector/AppointmentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/Months.java" afterPath="$PROJECT_DIR$/src/main/java/models/Months.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mainProgramStyleSheet.css" afterPath="$PROJECT_DIR$/src/main/resources/mainProgramStyleSheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mainProgramStyleSheet.css" afterPath="$PROJECT_DIR$/target/classes/mainProgramStyleSheet.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,35 +35,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainProgramController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainProgramController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="126" column="57" lean-forward="true" selection-start-line="126" selection-start-column="57" selection-end-line="126" selection-end-column="57" />
+            <state relative-caret-position="124">
+              <caret line="242" column="0" lean-forward="false" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+                <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+                <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-                <element signature="e#5286#5299#0" expanded="true" />
                 <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-                <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
                 <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+                <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InputAppointmentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppointmentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/databaseConnector/AppointmentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+              <folding>
+                <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
+                <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
+                <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="5962:6018" ph=" DELETE statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="6554:6593" ph=" DELETE statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="7078:7101" ph=" DELETE statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="7594:7658" ph=" UPDATE statement (APPOINTMENT)" />
+                <marker date="1508427567965" expanded="true" signature="8686:8715" ph=" SELECT statement (SQLITE_SEQUENCE)" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/detailPanel.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/mainProgram.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/removePanel.fxml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$MAVEN_REPOSITORY$/org/xerial/sqlite-jdbc/3.20.0/sqlite-jdbc-3.20.0.jar!/org/sqlite/jdbc3/JDBC3PreparedStatement.class" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/RemoveAppointmentController.java" />
         <option value="$PROJECT_DIR$/src/test/java/controllers/MainProgramControllerTest.java" />
@@ -147,7 +167,10 @@
         <option value="$PROJECT_DIR$/src/main/java/databaseConnector/AppointmentService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mainProgramStyleSheet.css" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config.xml" />
       </list>
     </option>
   </component>
@@ -209,10 +232,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,20 +280,14 @@
               <item name="Calendar" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Calendar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,16 +302,19 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="controllers" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2" />
-      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src\main\resources" />
+      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src\main\java" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src\main\resources" />
-      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src\main\java" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aminomous\IdeaProjects\Calendar\src\main\resources" />
+      <recent name="C:\Users\Aminomous\IdeaProjects\Calendar" />
+      <recent name="C:\Users\Aminomous\IdeaProjects\Calendar\src" />
+      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2" />
+      <recent name="C:\Users\Aminomous\IdeaProjects\CalendarMaven2\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -513,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505298383752</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add&#10;-datasource&#10;-days that have appointment will show in different color&#10;&#10;undone&#10;-refactoring&#10;-another datasource(file)">
+      <created>1508431787975</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1508431787975</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -544,7 +569,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -561,7 +585,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18814056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -590,45 +614,21 @@
     <MESSAGE value="fixed parameter in service&#10;&#10;added edit and remove function&#10;&#10;added some alert&#10;&#10;--still didnt test by junit" />
     <MESSAGE value="minor changes&#10;bug fixed" />
     <MESSAGE value="added create and remove appointment option(every day, ...)&#10;&#10;added remove an appointment in each day function.&#10;&#10;waiting junit" />
-    <option name="LAST_COMMIT_MESSAGE" value="added create and remove appointment option(every day, ...)&#10;&#10;added remove an appointment in each day function.&#10;&#10;waiting junit" />
+    <MESSAGE value="add&#10;-datasource&#10;-days that have appointment will show in different color&#10;&#10;undone&#10;-refactoring&#10;-another datasource(file)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add&#10;-datasource&#10;-days that have appointment will show in different color&#10;&#10;undone&#10;-refactoring&#10;-another datasource(file)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
-            <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2006">
           <caret line="170" column="70" lean-forward="true" selection-start-line="170" selection-start-column="70" selection-end-line="170" selection-end-column="70" />
-          <folding>
-            <element signature="method#initialize#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#createAppointment#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#initRepeatOption#0;class#InputAppointmentController#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -638,6 +638,12 @@
           <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
             <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
             <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
             <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
             <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
@@ -666,15 +672,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -691,11 +698,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="79" column="12" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
-          <folding>
-            <element signature="method#initialize#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#createAppointment#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#initRepeatOption#0;class#InputAppointmentController#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -705,6 +708,12 @@
           <caret line="133" column="51" lean-forward="false" selection-start-line="133" selection-start-column="51" selection-end-line="133" selection-end-column="51" />
           <folding>
             <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
             <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
             <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
             <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
@@ -733,15 +742,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -750,11 +760,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="68" column="48" lean-forward="true" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
-          <folding>
-            <element signature="method#initialize#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#createAppointment#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#initRepeatOption#0;class#InputAppointmentController#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -764,6 +770,12 @@
           <caret line="133" column="51" lean-forward="true" selection-start-line="133" selection-start-column="51" selection-end-line="133" selection-end-column="51" />
           <folding>
             <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
             <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
             <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
             <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
@@ -800,15 +812,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -843,15 +856,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -860,11 +874,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1326">
           <caret line="90" column="29" lean-forward="false" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
-          <folding>
-            <element signature="method#initialize#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#createAppointment#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#initRepeatOption#0;class#InputAppointmentController#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,15 +886,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -893,11 +904,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="method#initialize#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#createAppointment#0;class#InputAppointmentController#0" expanded="false" />
-            <element signature="method#initRepeatOption#0;class#InputAppointmentController#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -916,6 +923,12 @@
           <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding>
             <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
             <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
             <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
             <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
@@ -936,15 +949,16 @@
             <element signature="imports" expanded="true" />
             <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
             <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
             <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -963,23 +977,23 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Year.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/detailPanel.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/addAppointmentPanel.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/addAppointmentPanel.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/removePanel.fxml" />
@@ -1007,18 +1021,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Months.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mainProgramStyleSheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        <state relative-caret-position="340">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ShowAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="102" column="9" lean-forward="false" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1041,23 +1064,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mainProgram.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="89" column="9" lean-forward="false" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="28" lean-forward="false" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mainProgram.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="21" lean-forward="false" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="242" column="0" lean-forward="false" selection-start-line="242" selection-start-column="0" selection-end-line="242" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
+            <element signature="method#setAppointmentInEachDay#0;class#MainProgramController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/databaseConnector/AppointmentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-844">
-          <caret line="78" column="83" lean-forward="false" selection-start-line="78" selection-start-column="83" selection-end-line="78" selection-end-column="83" />
+        <state relative-caret-position="321">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
             <element signature="method#getAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#addAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByDate#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointmentByRepeatID#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAllAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#updateAppointment#0;class#AppointmentService#0" expanded="false" />
+            <element signature="method#removeAppointment#0;class#AppointmentService#0" expanded="false" />
             <element signature="method#getLatestId#0;class#AppointmentService#0" expanded="false" />
             <marker date="1508427567965" expanded="true" signature="586:611" ph=" SELECT statement (APPOINTMENT)" />
             <marker date="1508427567965" expanded="true" signature="1663:1761" ph=" INSERT statement (APPOINTMENT)" />
@@ -1070,58 +1145,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ShowAppointmentController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="102" column="9" lean-forward="true" selection-start-line="102" selection-start-column="9" selection-end-line="102" selection-end-column="9" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Months.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mainProgramStyleSheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/InputAppointmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="89" column="9" lean-forward="true" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainProgramController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="126" column="57" lean-forward="true" selection-start-line="126" selection-start-column="57" selection-end-line="126" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#changeMonth#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#changeYear#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#showAppointment#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#filterAppointmentsByDate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="e#5286#5299#0" expanded="true" />
-            <element signature="method#initDays#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#menuUpdate#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#initialize#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setCurrentYear#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setCurrentMonth#0;class#MainProgramController#0" expanded="false" />
-            <element signature="method#setSelectedDayButton#0;class#MainProgramController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
