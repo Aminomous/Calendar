@@ -7,7 +7,6 @@ import databaseConnector.DataSource;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import models.Appointment;
-import databaseConnector.AppointmentService;
 import models.Months;
 
 import java.time.LocalDate;
@@ -42,7 +41,6 @@ public class InputAppointmentController {
     protected void initialize() {
         this.descriptionInput.setScrollLeft(2);
         this.descriptionInput.setScrollTop(2);
-        service = new AppointmentService();
         initRepeatOption();
 
     }
@@ -57,7 +55,7 @@ public class InputAppointmentController {
                 titleInput.getText(),
                 descriptionInput.getText(),
                 repeatOption.getValue(),
-                repeatOption.getValue().equals("None")?0+"":String.valueOf(service.getLatestId()+1)
+                repeatOption.getValue().equals("None") ? 0 + "" : String.valueOf(service.getLatestId() + 1)
         );
 
         if (titleName == "Add Appointment") {
@@ -154,5 +152,9 @@ public class InputAppointmentController {
 
     public void setTitleName(String name) {
         titleName = name;
+    }
+
+    public void setService(DataSource service) {
+        this.service = service;
     }
 }

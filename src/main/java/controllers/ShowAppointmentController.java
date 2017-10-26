@@ -51,6 +51,7 @@ public class ShowAppointmentController {
                 controller.setDatePickerDisable();
             }
 
+            controller.setService(service);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             appointments.add(controller.getAppointment());
@@ -78,6 +79,7 @@ public class ShowAppointmentController {
             controller.setCurrentDate(appointments.get(choiceNumber.getValue() - 1).getDate());
             controller.setDatePickerDisable();
             controller.setChoiceBoxDisable();
+            controller.setService(service);
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
@@ -152,7 +154,6 @@ public class ShowAppointmentController {
         this.showArea.setScrollLeft(2.0);
         this.showArea.setScrollTop(2.0);
         this.showArea.setEditable(false);
-        service = new AppointmentService();
     }
 
     private void initChoiceNumber() {
@@ -168,5 +169,9 @@ public class ShowAppointmentController {
 
     public void setAppointments(ArrayList<Appointment> app) {
         appointments = app;
+    }
+
+    public void setService(DataSource service){
+        this.service = service;
     }
 }

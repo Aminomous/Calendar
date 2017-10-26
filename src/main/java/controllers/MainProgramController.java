@@ -97,6 +97,7 @@ public class MainProgramController {
                 controller.setCurrentDate("EMPTY");
             }
             controller.setTitleName("Add Appointment");
+            controller.setService(service);
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
@@ -158,6 +159,7 @@ public class MainProgramController {
 
             controller.showItems(isDaySelected ? "NOTSHOWDATE" : "SHOWDATE");
 
+            controller.setService(service);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
 
