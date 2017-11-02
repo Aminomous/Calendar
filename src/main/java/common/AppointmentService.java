@@ -1,11 +1,9 @@
-package databaseConnector;
+package common;
 /**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
 
-import models.Appointment;
-import models.Months;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class AppointmentService implements DataSource{
+public class AppointmentService implements IService {
     private String dbUrl = "jdbc:sqlite:AppointmentDatabase.db";
     private int latestId;
 
@@ -50,7 +48,6 @@ public class AppointmentService implements DataSource{
         return null;
     }
 
-    @Override
     public void addAppointment(Appointment app) {
 
         String query = "insert into Appointment(date, time, title, description, option, repeatId) values(?, ?, ?, ?, ?, ?)";

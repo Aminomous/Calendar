@@ -1,9 +1,9 @@
-package controllers;
+package client.controllers;
 /**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
-import databaseConnector.DataSource;
+import common.DataSource;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,8 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Appointment;
-import databaseConnector.AppointmentService;
+import common.Appointment;
 
 import java.io.IOException;
 import java.util.ArrayList;

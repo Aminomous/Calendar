@@ -1,9 +1,9 @@
-package controllers;
+package client.controllers;
 /**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
-import databaseConnector.DataSource;
+import common.IService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,9 +17,9 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Appointment;
-import databaseConnector.AppointmentService;
-import models.Months;
+import common.Appointment;
+import common.AppointmentService;
+import common.Months;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -42,7 +42,7 @@ public class MainProgramController {
 
     private boolean isDaySelected = false;
     private int currentDay, currentMonth, currentYear; //currentMonth is base 0
-    private DataSource service;
+    private IService service;
     private ArrayList<Appointment> appointments;
     private GregorianCalendar calendar;
     private String selectedDate;
@@ -242,11 +242,11 @@ public class MainProgramController {
 
     @FXML
     public void initialize() {
-        ApplicationContext bf = new ClassPathXmlApplicationContext("config.xml");
+        ApplicationContext bf = new ClassPathXmlApplicationContext("client-config.xml");
 
         appointments = new ArrayList<>();
 //        service = new AppointmentService();
-        service = (AppointmentService) bf.getBean("service");
+        service = (IService) bf.getBean("datasource");
         calendar = new GregorianCalendar();
         setCurrentYear(calendar.get(Calendar.YEAR));
         setCurrentMonth(calendar.get(Calendar.MONTH));

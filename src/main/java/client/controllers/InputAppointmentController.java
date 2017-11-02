@@ -1,13 +1,13 @@
-package controllers;
+package client.controllers;
 /**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
-import databaseConnector.DataSource;
+import common.DataSource;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import models.Appointment;
-import models.Months;
+import common.Appointment;
+import common.Months;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

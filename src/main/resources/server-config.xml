@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="AppointmentService" class="common.AppointmentService">
+    </bean>
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="service" ref="AppointmentService"/>
+        <property name="serviceName" value="AppointmentServices"/>
+        <property name="serviceInterface" value="common.IService"/>
+        <property name="registryPort" value="1099"/>
+    </bean>
+</beans>

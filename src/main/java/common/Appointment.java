@@ -1,10 +1,12 @@
-package models;
+package common;
+
+import java.io.Serializable;
 
 /**
  * Thanadon Pakawatthippoyom 5810405037
  */
 
-public class Appointment {
+public class Appointment implements Serializable {
 
 	private int id;
 	private String date;

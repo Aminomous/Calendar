@@ -1,6 +1,6 @@
-package databaseConnector;
+package common;
 
-import models.Appointment;
+import common.Appointment;
 
 import java.util.ArrayList;
 
